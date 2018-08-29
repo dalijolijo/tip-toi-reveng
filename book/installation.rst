@@ -15,7 +15,7 @@ Linux (Debian, Ubuntu und ähnliche)
 
 Unter Linux kompilierst du das ``tttool`` selbst. Dazu brauchst du erst einmal ein paar Pakete::
 
-$ sudo apt-get install git haskell-platform libncurses5-dev libttspico-utils vorbis-tools
+$ sudo apt-get install git haskell-platform libncurses5-dev libttspico-utils vorbis-tools cabal-install
 
 Dann kannst lädst du dir den aktuellen Quellcode des ``tttool`` herunter::
 
@@ -25,6 +25,7 @@ $ cd tttool
 Folgende Befehlsfolge installiert ein paar Bibliotheken und das ``tttool`` selbst::
 
 $ cabal update
+$ cabal install Cabal cabal-install
 $ cabal install --only-dependencies
 $ cabal install --bindir=.
 
