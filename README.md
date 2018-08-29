@@ -86,12 +86,13 @@ Otherwise, installation from source is not difficult either:
 
  3. Install the development packages for ncurses, i.e.
 
-        apt-get install libncurses5-dev
+        apt-get install libncurses5-dev cabal-install
 
  4. Install the Haskell dependencies. The Haskell platform comes with a tool
     called `cabal`, and you should run the two commands
 
         cabal update
+        cabal install Cabal cabal-install
         cabal install --only-dependencies
 
  5. Now you can build the program using
