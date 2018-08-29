@@ -53,13 +53,14 @@ supports various subcommands:
     play                     interactively play a GME file
 
 Run
-
-    ./tttool --help
+```sh
+./tttool --help
+```
 
 to learn about global options (e.g. DPI settings), and
-
-    ./tttool command --help
-
+```sh
+./tttool command --help
+```
 for the options of the individual command.
 
 Installation
@@ -75,33 +76,39 @@ Otherwise, installation from source is not difficult either:
 
  1. If you have not done so yet, fetch the source code and change to the
     directory containing the code:
-
-        git clone https://github.com/entropia/tip-toi-reveng.git tttool
-        cd tttool
+    ```sh
+    git clone https://github.com/entropia/tip-toi-reveng.git tttool
+    cd tttool
+    ```
 
  2. Install the *Haskell platform*, see http://www.haskell.org/platform/
     for details for your system. Users of Debian or Ubuntu simply run
-
-        apt-get install haskell-platform
+    ```sh
+    apt-get install haskell-platform
+    ```
 
  3. Install the development packages for ncurses, i.e.
-
-        apt-get install libncurses5-dev cabal-install
+    ```sh
+    apt-get install libncurses5-dev cabal-install
+    ```
 
  4. Install the Haskell dependencies. The Haskell platform comes with a tool
     called `cabal`, and you should run the two commands
-
-        cabal update
-        cabal install Cabal cabal-install
-        cabal install --only-dependencies
+    ```sh
+    cabal update
+    cabal install Cabal cabal-install
+    cabal install --only-dependencies
+    ```
 
  5. Now you can build the program using
-
-        cabal install --bindir=.
+    ```sh
+    cabal install --bindir=.
+    ```
 
  6. At this point, `tttool` should be ready to go. If you run
-
-        ./tttool
+    ```sh
+    ./tttool
+    ```
 
     you should see the list of commands shown above.
 
@@ -114,17 +121,22 @@ Once you have installed `tttool`, you can create your own `.gme` files. The
 process is as follows
 
  1. Record the audio samples you want to include, as Ogg Vorbis files, mono, 22050Hz. I use
-
-        arecord -r 22050 foo.wav
-        oggenc foo.wav
-        rm foo.wav
+    ```sh
+    arecord -r 22050 foo.wav
+    oggenc foo.wav
+    rm foo.wav
+    ```
 
  2. Write a `my-book.yaml` file containing some general information, and especially
     the scripts (i.e. what to do) for each OIDs (i.e. the various fields of a
     book). You can use the [example.yaml](example.yaml) file as a starting
     point; it contains more information in its comments.
 
- 3. Run `./tttool assemble my-book.yaml`, and make sure it reports no error, i.e.
+ 3. Run
+    ```sh
+    ./tttool assemble my-book.yaml
+    ```
+    and make sure it reports no error, i.e.
     finishes silently.
 
  4. Copy the now generated `my-book.gme` to your TipToi pen and enjoy!
@@ -137,8 +149,9 @@ read out the codes, as a sequence of english digits.
 
 If you want to convert existing audio files of almost any format, and you have
 `ffmpeg` installed, you can use 
-
-    ffmpeg -i input-audio-in-some.fmt -ar 22050 -ac 1 foo.ogg
+```sh
+ffmpeg -i input-audio-in-some.fmt -ar 22050 -ac 1 foo.ogg
+```
 
 Text to speech
 --------------
@@ -146,6 +159,10 @@ Text to speech
 If you have `libttspico-utils` and `vorbis-tools installed`, you can have tttool
 generate audio files from text for you, which makes developing your yaml file
 much easier. See [text2speech.yaml](text2speech.yaml) for more information.
+
+```sh
+apt-get install libttspico-utils vorbis-tools
+```
 
 Printing your own books
 -----------------------
